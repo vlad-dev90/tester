@@ -8,8 +8,6 @@ JSON.parse(File.open("./question_#{ENV['level']}.json") { |f| f.read }).each do 
   question = task['question']
   level = task['level']
 
-  binding.pry
-
   parameters = {
     question: question,
     level: level,
@@ -17,5 +15,6 @@ JSON.parse(File.open("./question_#{ENV['level']}.json") { |f| f.read }).each do 
   }
 
   Net::HTTP.post_form(uri, parameters)
+  sleep 0.5
 
 end
